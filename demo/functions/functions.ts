@@ -12,3 +12,21 @@ import { strict as assert } from "assert";
 //
 // Useful links:
 // https://www.typescriptlang.org/docs/handbook/2/functions.html
+
+const sayHello = () => {
+	console.log("hello");
+};
+
+sayHello();
+
+const sum = (lhs: number, rhs: number): number => {
+	return lhs + rhs;
+};
+
+const answer = sum(10, 20);
+console.log(answer);
+
+const answer2 = sum(answer, 20);
+console.log(answer2);
+
+assert.equal(answer2, 50);
