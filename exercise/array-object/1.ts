@@ -27,13 +27,56 @@
 
 import { strict as assert } from "assert";
 
+type Section = string;
+
+interface Student {
+	name: string;
+	enrollments: Section[];
+}
+
 const alice = {
-  name: "Alice",
-  enrollments: [],
+	name: "Alice",
+	enrollments: [],
 };
 
 const bob = {
-  name: "Bob",
-  enrollments: ["Algorithms"],
-}
+	name: "Bob",
+	enrollments: ["Algorithms"],
+};
 
+const addSection = (student: Student, section: Section): void => {
+	if (!student.enrollments.includes(section)) {
+		student.enrollments.push(section);
+	} else {
+		console.log(`${student.name} is already enrolled in ${section}`);
+	}
+};
+
+const removeSection = (student: Student, section: Section): void => {
+	student.enrollments = student.enrollments.filter((enrollment) => enrollment !== section);
+};
+
+const totalEnrollments = (student: Student): number => student.enrollments.length;
+
+// 1.
+addSection(alice, "CompSci");
+assert.deepEqual(alice.enrollments, ["CompSci"]);
+
+// 2.
+addSection(alice, "Networking");
+assert.deepEqual(alice.enrollments, ["CompSci", "Networking"]);
+
+// 3.
+removeSection(alice, "CompSci");
+
+// 4.
+assert.deepEqual(alice.enrollments, ["Networking"]);
+
+// 5.
+addSection(bob, "Networking");
+
+// 6.
+assert.deepEqual(bob.enrollments, ["Algorithms", "Networking"]);
+
+// 7.
+assert.deepEqual(totalEnrollments(bob), 2);
