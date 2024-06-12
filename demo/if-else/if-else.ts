@@ -32,7 +32,7 @@ const totalOvertime = 0.5;
 const holidaySeason = false;
 
 const approveWork = () => {
-	if ((hasTheSkills && (isTuesday || (hoursWorked > 8 && totalOvertime < 1))) || holidaySeason) {
+	if ((hasTheSkills && (day || (hoursWorked > 8 && totalOvertime < 1))) || holidaySeason) {
 	} else {
 	}
 };
