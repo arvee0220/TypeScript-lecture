@@ -80,3 +80,9 @@ assert.deepEqual(bob.enrollments, ["Algorithms", "Networking"]);
 
 // 7.
 assert.deepEqual(totalEnrollments(bob), 2);
+
+// git fetch origin solutions:solutions to check solutions.
+
+let fruits = ["apple", "banana", "cherry", "date"];
+fruits.splice(1, 3);
+console.log(fruits);

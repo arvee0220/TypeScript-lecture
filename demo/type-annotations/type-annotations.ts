@@ -9,3 +9,27 @@ import { strict as assert } from "assert";
 //
 // Useful links:
 // https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-annotations-on-variables
+
+const myName = "Jayson";
+const amount: number = 2 + 2;
+const hello: string = `Hello ${myName}`;
+const powerLevel: bigint = 9000n + 1n;
+const yes: boolean = true;
+
+const sum = (n1: number, n2: number): number => {
+	const total = n1 + n2;
+	return total;
+};
+
+// or
+
+type sumFunction = (n1: number, n2: number) => number;
+
+const sum2: sumFunction = (n1, n2) => {
+	const total = n1 + n2;
+	return total;
+};
+
+const addition = sum(sum2(2, 1), 3);
+
+console.log(addition);
