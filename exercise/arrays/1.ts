@@ -4,7 +4,7 @@
 //
 // Since this data landed in your department and you love writing programs, you
 // decide to write one for this task instead of just swapping the values in
-// your text editor. 
+// your text editor.
 //
 // The data set consists of two arrays where each element in one array is
 // associated with the element at the same index in the other array. For
@@ -14,10 +14,10 @@
 //   ["brown", "gold", "purple"]  // team colors
 //
 //   Team "brown" ranked 8 while team "gold" ranked 2.
-// 
+//
 // Produce a program that can sort the two arrays in order from rank 1 to rank
 // 4. Using the example from above, the target arrays should look like this:
-//  
+//
 //   [2,       3,        4]        // ranks
 //   ["gold",  "purple", "brown"]  // team colors
 //
@@ -53,3 +53,61 @@ import { strict as assert } from "assert";
 const ranking = [3, 4, 1, 2];
 const teams = ["red", "blue", "green", "yellow"];
 
+const sortRank = (rankList: number[]): number[] => {
+	let n = rankList.length;
+	let swapped: boolean;
+	do {
+		swapped = false;
+		for (let i = 0; i < n - 1; i++) {
+			// Use for...of to iterate over the array indices
+			for (const j of [i]) {
+				if (rankList[j] > rankList[j + 1]) {
+					// Swap elements
+					const temp = rankList[j];
+					rankList[j] = rankList[j + 1];
+					rankList[j + 1] = temp;
+					swapped = true;
+				}
+			}
+		}
+		n--;
+	} while (swapped);
+
+	return rankList;
+};
+
+const sortColors = (colArr: string[]): string[] => {
+	const sortedTeams: string[] = [];
+	const desiredOrder = ["green", "yellow", "red", "blue"];
+
+	for (const color of desiredOrder) {
+		if (colArr.includes(color)) {
+			sortedTeams.push(color);
+		}
+	}
+
+	return sortedTeams;
+};
+
+// 1
+const sortedRank = sortRank(ranking);
+const sortedTeams = sortColors(teams);
+
+assert.deepEqual(sortedRank, [1, 2, 3, 4]);
+assert.deepEqual(sortedTeams, ["green", "yellow", "red", "blue"]);
+
+sortedRank.push(5);
+sortedTeams.push("pink");
+assert.deepEqual(sortedRank, [1, 2, 3, 4, 5]);
+assert.deepEqual(sortedTeams, ["green", "yellow", "red", "blue", "pink"]);
+
+const reversedRank: number[] = [];
+const reversedTeams: string[] = [];
+
+for (let i = sortedRank.length - 1; i >= 0; i--) {
+	reversedRank.push(sortedRank[i]);
+	reversedTeams.push(sortedTeams[i]);
+}
+
+assert.deepEqual(reversedRank, [5, 4, 3, 2, 1]);
+assert.deepEqual(reversedTeams, ["pink", "blue", "red", "yellow", "green"]);
