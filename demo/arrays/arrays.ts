@@ -10,3 +10,35 @@ import { strict as assert } from "assert";
 //
 // Useful links:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+const numbers: number[] = [1, 2, 3];
+
+let letters: string[] = ["a", "b", "c"];
+
+const b = letters[1];
+assert.equal(b, "b");
+
+letters[1] = "z";
+assert(letters[1] === "z");
+assert.deepEqual(letters, ["a", "z", "c"]);
+
+const names = [
+	["Jayson", "L"],
+	["Alice", "B"],
+];
+
+const Jayson = names[0][0];
+const L = names[0][1];
+const b2 = names[1][1];
+
+const nums: number[] = [];
+nums.push(10);
+nums.push(20);
+nums.push(30);
+assert.deepEqual(nums, [10, 20, 30]);
+
+nums.pop();
+assert.deepEqual(nums, [10, 20]);
+
+nums.splice(0, 1);
+assert.deepEqual(nums, [20]);
