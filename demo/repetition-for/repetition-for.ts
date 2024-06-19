@@ -16,3 +16,57 @@
 //
 // Useful links:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
+
+//    init    ; bool  ; inc/dec
+for (let i = 1; i <= 5; i++) {
+	console.log(`${i}`);
+}
+
+console.log(`--`);
+
+const nums = [0, 1, 2, 3, 4];
+
+for (let i = 0; i <= nums.length - 1; i++) {
+	console.log(`${i}`);
+}
+
+console.log(`--`);
+
+for (let i = 1; i <= 10000; i++) {
+	console.log(`${i}`);
+	if (i === 3) {
+		break;
+	}
+}
+
+console.log(`--`);
+
+for (let i = 1; i <= 10000; i++) {
+	console.log(`${i}`);
+	if (i === 5) {
+		break;
+	}
+}
+
+console.log(`--`);
+
+for (let i = 1; i <= 10000; i++) {
+	console.log(`${i}`);
+	if (i === 5) {
+		break;
+	}
+
+	if (i === 3) {
+		continue;
+	}
+
+	console.log("hi!");
+}
+
+console.log(`--`);
+
+const letters = ["a", "b", "c"];
+
+for (let i = 0; i < letters.length; i++) {
+	console.log(letters[i]);
+}
