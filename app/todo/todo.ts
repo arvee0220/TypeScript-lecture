@@ -2,10 +2,10 @@ import fs from "fs";
 
 const todosPath = "todos.json";
 
-type Todo = {
+interface Todo {
 	id: number;
 	task: string;
-};
+}
 
 const getTodos = (): Todo[] => {
 	if (!fs.existsSync(todosPath)) {
@@ -65,6 +65,10 @@ const addTodo = (task: string): void => {
 	console.log(`Added todo ${id}: ${task}`);
 };
 
+const cliInvalidOption = (command: string): void => {
+	console.error(`invalid number of options for subcommand ${command}`);
+};
+
 const cli = (): void => {
 	const subcommand = process.argv[2];
 	const options = process.argv.slice(3);
@@ -81,7 +85,7 @@ const cli = (): void => {
 			if (options.length === 1) {
 				addTodo(options[0]);
 			} else {
-				console.log(`invalid number of options for subcommand "add"`);
+				cliInvalidOption("add");
 			}
 			break;
 		case "done":
@@ -93,21 +97,21 @@ const cli = (): void => {
 					removeTodo(id);
 				}
 			} else {
-				console.log(`Invalid number of options for subcommand "done"`);
+				cliInvalidOption("done");
 			}
 			break;
 		case "list":
 			if (options.length === 0) {
 				listTodos();
 			} else {
-				console.log(`Invalid number of options for subcommand "list"`);
+				cliInvalidOption("list");
 			}
 			break;
 		case "clear":
 			if (options.length === 0) {
 				clearTodos();
 			} else {
-				console.log(`Todo list is empty`);
+				cliInvalidOption("clear");
 			}
 			break;
 		default:
