@@ -8,3 +8,33 @@
 //
 // Useful links:
 // https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html
+
+const abc = ["a", "b", "c"];
+
+for (let i = 0; i < abc.length; i++) {
+	console.log(`For loop`, abc[i]);
+}
+
+// iterator for arrays
+for (const letter of abc) {
+	console.log(`For of`, letter);
+}
+
+const nums = {
+	one: 1,
+	two: 2,
+	three: 3,
+};
+
+let property: keyof typeof nums;
+
+for (property in nums) {
+	console.log(property, nums[property]);
+}
+
+nums["letter"] = "a"; //NaN
+
+for (property in nums) {
+	const answer = nums[property] * 2;
+	console.log(answer);
+}
