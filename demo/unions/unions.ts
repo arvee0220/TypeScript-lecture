@@ -7,3 +7,37 @@
 //
 // Useful links:
 // https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types
+
+type Color = "red" | "green" | "blue";
+
+const r: Color = "red";
+
+const setBgColor = (c: Color) => {
+	switch (c) {
+		case "red":
+			break;
+		case "blue":
+			break;
+		case "green":
+			break;
+	}
+};
+
+setBgColor("blue");
+
+type OneTwoThree = 1 | 2 | 3;
+
+const one: OneTwoThree = 1;
+
+type StrOrNum = string | number;
+
+const sample = (data: StrOrNum) => {
+	if (typeof data === "string") {
+		console.log(`Message: ${data.toUpperCase()}`);
+	} else if (typeof data === "number") {
+		console.log(`Total: ${10 + data}`);
+	}
+};
+
+sample("Hi");
+sample(25);
