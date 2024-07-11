@@ -18,7 +18,7 @@ const greet = greeting as string;
 // wrong!
 // const greet = greeting as number;
 // const n = greet + 2;
-// console.log(n)  hello2
+// console.log(n)  == hello2
 
 const numChars = (greeting as string).length;
 console.log(numChars);

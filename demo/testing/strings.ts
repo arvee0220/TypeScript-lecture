@@ -10,31 +10,31 @@
 
 // A basic function that concatenates two strings.
 export function concat(a: string, b: string): string {
-  return `${a}${b}`;
+	return `${a}${b}`;
 }
 
 export function div(lhs: number, rhs: number): number {
-  if (rhs === 0) {
-    throw new Error("Cannot divide by zero");
-  } else {
-    return lhs / rhs;
-  }
+	if (rhs === 0) {
+		throw new Error("Cannot divide by zero");
+	} else {
+		return lhs / rhs;
+	}
 }
 
 // An asynchronus function that resolves.
 export function slowString() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("sample");
-    }, 200);
-  });
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve("sample");
+		}, 200);
+	});
 }
 
 // An asynchronus function that fails.
 export function failedString() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      reject("whoops");
-    }, 1);
-  });
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			reject("whoops");
+		}, 1);
+	});
 }
