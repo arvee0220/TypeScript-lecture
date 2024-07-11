@@ -1,12 +1,21 @@
-{
-  "extends": "../../tsconfig.json",
-  "ts-node": {
-    "files": true
-  },
-  "compilerOptions": {
-    "module": "commonjs",
-    "typeRoots": [
-      "./src/backend/types"
-    ]
-  }
-}
+// {
+//   "extends": "../../tsconfig.json",
+//   "ts-node": {
+//     "files": true
+//   },
+//   "compilerOptions": {
+//     "module": "commonjs",
+//     "typeRoots": [
+//       "./src/backend/types"
+//     ]
+//   },
+//   "include": [
+//     "src/**/*.ts"
+//   ],
+//   "exclude": [
+//     "node_modules",
+//     "dist",
+//     "config",
+//     "tailwind.config.js"  // Explicitly exclude the Tailwind config file
+//   ]
+// }
