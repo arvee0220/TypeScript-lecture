@@ -74,4 +74,24 @@ export class CurrentWeather {
 		this.daytime = apiResponse.is_day === 1;
 		this.time = apiResponse.time;
 	}
+
+	condition(): string {
+		return weatherCodes[this.weathercode];
+	}
+
+	format(): string {
+		const descriptionLen = 16;
+
+		const temp = "Temperature".padStart(descriptionLen, " ");
+		const windSpeed = "Wind Speed".padStart(descriptionLen, " ");
+		const condition = "Condition".padStart(descriptionLen, " ");
+
+		const formatted: string[] = [];
+
+		formatted.push(`${temp}: ${formatTemperature(this.temperature)}`);
+		formatted.push(`${windSpeed}: ${formatWind(this.wind)}`);
+		formatted.push(`${condition}: ${this.condition()}`);
+
+		return formatted.join("\n");
+	}
 }
